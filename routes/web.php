@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PermisoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+//Route::view('permiso/{nombre}', 'permiso');
+
+//Route::get('admin/sistema/permisos', [PermisoController::class, 'index'])->name('permiso');
+
+
+/*Route::get('permiso', function () {
+         return view('permiso');
+});*/   
+
+Route::get('permiso/{nombre}', function ($nombre) {
+    return  $nombre;
+})->where('nombre', '[0-9]+')->name('permiso');
